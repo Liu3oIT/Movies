@@ -28,6 +28,7 @@ export default function MoviesDetails() {
           throw new Error('no such movie');
         }
         setMovieinfo(respons);
+        console.log(respons);
       } catch (error) {
         setError(error.message);
       }
@@ -43,8 +44,16 @@ export default function MoviesDetails() {
     return <Loader/>;
   }
 
-  const { original_title, overview, genres, poster_path } = movieinfo;
+  const {
+    original_title,
+    overview,
+    genres,
+    poster_path,
+    vote_average,
+    release_date,
+  } = movieinfo;
   const goBackPath = location.state?.from || '/';
+   const releaseYear = release_date ? release_date.split('-')[0] : '';
   return (
     <>
       <Container>
@@ -57,7 +66,10 @@ export default function MoviesDetails() {
             alt={original_title}
           />
           <ContainerInfoFilm>
-            <h2>{original_title}</h2>
+            <h2>
+              {original_title} ({releaseYear})
+            </h2>
+            <h3>User score: {Math.round(vote_average * 10)}%</h3>
             <h3>Overview</h3>
             <p>{overview}</p>
             <Genres>

@@ -1,4 +1,6 @@
 import styled from '@emotion/styled';
+
+
 // header
 export const Navigation = styled.nav`
   display: flex;
@@ -74,7 +76,7 @@ export const ImegeLogo = styled.img`
   transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
     -webkit-transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
- 
+
   &:hover {
     cursor: click;
     -webkit-transform: scale(1.03);

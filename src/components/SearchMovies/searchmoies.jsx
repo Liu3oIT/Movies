@@ -7,7 +7,7 @@ export const FormSearch = ({ onSubmit }) => {
   const searchQuery = searchParams.get('query') || '';
 
   const handleInput = event => {
-    const trimmedValue = event.currentTarget.value.trim();
+    const trimmedValue = event.currentTarget.value;
     setSearchParams({ query: trimmedValue.toLowerCase() });
   };
 
@@ -26,6 +26,7 @@ export const FormSearch = ({ onSubmit }) => {
           <Input
             onChange={handleInput}
             name="searchQuery"
+            autoComplete="off"
             value={searchQuery}
             type="text"
             placeholder="Search movies"
